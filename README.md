@@ -883,7 +883,7 @@ cd Projects
 Clone the repository from GitHub:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Yashwanth-57/github-repository-tracker-api
 ```
 
 Move into the project directory:
@@ -951,6 +951,10 @@ Install all required packages:
 ```bash
 pip install -r requirements.txt
 ```
+
+###  *** Important***
+
+ The requirements file contains pinned dependency versions to ensure the application runs with the same package versions used during development and testing.
 
 Verify installation:
 
@@ -1068,7 +1072,7 @@ Test using postman
 ## Step 1: Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Yashwanth-57/github-repository-tracker-api
 cd BasicProject
 ```
 
@@ -1125,11 +1129,6 @@ Swagger UI:
 http://localhost:8000/docs
 ```
 
-ReDoc:
-
-```text
-http://localhost:8000/redoc
-```
 
 ---
 
@@ -1138,16 +1137,19 @@ http://localhost:8000/redoc
 Pull the image:
 
 ```bash
-docker pull <your-image-name>
+docker pull yashwanth57/github-repository-tracker-api:latest
 ```
 
 Run the container:
 
 ```bash
-docker run -p 8000:8000 --env-file .env <your-image-name>
+docker run -p 8000:8000 --env-file .env yashwanth57/github-repository-tracker-api:latest
 ```
+next thing after this , in ddocker terminal you need run that command first for create_tabel
 
-Access:
+# python create_table.py
+
+Access: open in browser automatically that opens with the swagger ui for better ui tetsing.
 
 ```text
 http://localhost:8000/docs
@@ -1553,6 +1555,8 @@ GitHub enforces rate limits on unauthenticated requests. Optional token-based au
 
 ---
 
+
+
 ## 2. Async-First Architecture
 
 The application uses:
@@ -1642,8 +1646,20 @@ Integration tests run against a completely separate PostgreSQL database rather t
 
 Requires maintaining an additional database specifically for testing.
 
+---
+
+## 6. Dependency Version Pinning
+
+All dependencies are pinned to exact versions in `requirements.txt` using:
+
+```bash
+pip freeze > requirements.txt
 ```
-```
+
+### Trade-off
+
+Dependencies must be updated manually when newer versions are required.
+
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
